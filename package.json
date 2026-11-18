@@ -1,0 +1,59 @@
+{
+  "name": "digilians-26-photobooth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Digilians 26 AI Photobooth Desktop Kiosk",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:build": "npm run build && electron-builder --win portable",
+    "electron:pack": "npm run build && electron-builder --dir"
+  },
+  "build": {
+    "appId": "com.5dvr.digilians26.photobooth",
+    "productName": "Digilians-26-Photobooth",
+    "icon": "build/icon.png",
+    "asar": true,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "build/icon.png",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "Digilians-26-Photobooth-${version}-portable.exe"
+    }
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "face-api.js": "^0.22.2",
+    "lucide-react": "^0.475.0",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "electron": "^33.3.1",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11",
+    "wait-on": "^8.0.2"
+  }
+}

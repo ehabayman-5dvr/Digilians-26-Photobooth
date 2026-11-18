@@ -1,0 +1,687 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500;600;700&family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --dg-navy: #000066;
+  --dg-mint: #00ff99;
+  --dg-blue: #3399ff;
+  --dg-sky: #8fc8ff;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000038;
+  color: #ffffff;
+  font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input,
+textarea,
+select {
+  user-select: text;
+  -webkit-user-select: text;
+  color-scheme: dark;
+}
+
+select option {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* --- Animations from Digilians Design References --- */
+@property --dg-a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes dgSpin {
+  to {
+    --dg-a: 360deg;
+  }
+}
+
+@keyframes dgShine {
+  0% {
+    left: -60%;
+  }
+  55%,
+  100% {
+    left: 130%;
+  }
+}
+
+@keyframes dgFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes dgPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes dgOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dgBreath {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes dgSwipe {
+  0%,
+  100% {
+    transform: translateX(18px);
+  }
+  50% {
+    transform: translateX(-18px);
+  }
+}
+
+@keyframes dgScan {
+  0% {
+    top: 6%;
+  }
+  100% {
+    top: 94%;
+  }
+}
+
+@keyframes dgPop {
+  0% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.88);
+    opacity: 0;
+  }
+}
+
+@keyframes dgRing {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -1131;
+  }
+}
+
+@keyframes dgFlash {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dgCamPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 22px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes pfBg {
+  0%,
+  100% {
+    transform: scale(1.06) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.16) translate(-36px, -48px);
+  }
+}
+
+@keyframes pfD1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(260px, 220px);
+  }
+}
+
+@keyframes pfD2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-240px, -260px);
+  }
+}
+
+@keyframes pfShine {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  55%,
+  100% {
+    transform: translateX(420%) skewX(-18deg);
+  }
+}
+
+@keyframes pfRise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-1700px);
+    opacity: 0;
+  }
+}
+
+@keyframes gSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gSpinR {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes gPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes gFlow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+@keyframes gDraw {
+  0% {
+    stroke-dashoffset: var(--len, 2300);
+  }
+  60%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes gFall {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes gType {
+  0% {
+    width: 0;
+  }
+  40%,
+  85% {
+    width: var(--w, 300px);
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes gBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes gFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-18px) rotate(var(--r, 0deg));
+  }
+}
+
+@keyframes gScan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes fxTw {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.dg-ring-g {
+  background: conic-gradient(
+    from var(--dg-a),
+    rgba(0, 255, 153, 0.15) 0deg,
+    rgba(0, 255, 153, 0.15) 200deg,
+    #00ff99 290deg,
+    #3399ff 330deg,
+    rgba(0, 255, 153, 0.15) 360deg
+  );
+  animation: dgSpin 5s linear infinite;
+}
+
+.dg-ring-b {
+  background: conic-gradient(
+    from var(--dg-a),
+    rgba(51, 153, 255, 0.15) 0deg,
+    rgba(51, 153, 255, 0.15) 200deg,
+    #3399ff 290deg,
+    #00ff99 330deg,
+    rgba(51, 153, 255, 0.15) 360deg
+  );
+  animation: dgSpin 5s linear infinite;
+  animation-delay: -2.5s;
+}
+
+.dg-shine {
+  animation: dgShine 5s ease-in-out infinite;
+}
+.dg-float {
+  animation: dgFloat 6s ease-in-out infinite;
+}
+.dg-pulse {
+  animation: dgPulse 2.4s ease-in-out infinite;
+}
+.dg-swipe {
+  animation: dgSwipe 1.8s ease-in-out infinite;
+}
+.dg-scan {
+  animation: dgScan 2.8s ease-in-out infinite alternate;
+}
+.dg-pop {
+  animation: dgPop 1s ease-out both;
+}
+.dg-ringc {
+  animation: dgRing 1s linear both;
+}
+.dg-flash {
+  animation: dgFlash 0.7s ease-out both;
+}
+.dg-cam-pulse {
+  animation: dgCamPulse 2s ease-out infinite;
+}
+.pf-bg {
+  animation: pfBg 24s ease-in-out infinite;
+  transform-origin: 50% 40%;
+}
+.pf-d1 {
+  animation: pfD1 20s ease-in-out infinite;
+}
+.pf-d2 {
+  animation: pfD2 26s ease-in-out infinite;
+}
+.pf-ring {
+  animation: dgOrbit 4s linear infinite;
+}
+.pf-shine {
+  animation: pfShine 6s ease-in-out infinite;
+}
+.pf-rise {
+  animation: pfRise linear infinite;
+}
+.g-spin {
+  animation: gSpin 7s linear infinite;
+}
+.g-spin-r {
+  animation: gSpinR 11s linear infinite;
+}
+.g-pulse {
+  animation: gPulse 2.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.g-flow {
+  animation: gFlow 1.2s linear infinite;
+}
+.g-draw {
+  animation: gDraw 4s ease-in-out infinite;
+}
+.g-fall {
+  animation: gFall 6s linear infinite;
+}
+.g-type {
+  animation: gType 5s steps(28) infinite;
+}
+.g-blink {
+  animation: gBlink 1s step-end infinite;
+}
+.g-float {
+  animation: gFloat 5s ease-in-out infinite;
+}
+.g-scan {
+  animation: gScan 2.2s ease-in-out infinite alternate;
+}
+.g-breath {
+  animation: dgBreath 4s ease-in-out infinite;
+}
+.fx-tw {
+  animation: fxTw 2.6s ease-in-out infinite;
+}
+
+/* Language card hover & selection micro-interactions */
+.dg-lang-card {
+  transition: transform 0.36s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.36s ease,
+    opacity 0.28s ease;
+  will-change: transform, opacity;
+}
+
+.dg-lang-card-ar {
+  transform: rotateY(7deg);
+  box-shadow: 0 0 70px #00ff9940, 0 50px 100px rgba(0, 0, 30, 0.6);
+}
+
+.dg-lang-card-ar:hover {
+  transform: rotateY(2deg) translateY(-10px) scale(1.025);
+  box-shadow: 0 0 95px #00ff9975, 0 60px 110px rgba(0, 0, 30, 0.7);
+}
+
+.dg-lang-card-ar:active,
+.dg-lang-card-ar.is-selected {
+  transform: rotateY(0deg) translateY(-12px) scale(1.045);
+  box-shadow: 0 0 120px #00ff99aa, 0 60px 120px rgba(0, 0, 30, 0.75);
+}
+
+.dg-lang-card-en {
+  transform: rotateY(-7deg);
+  box-shadow: 0 0 70px #3399ff40, 0 50px 100px rgba(0, 0, 30, 0.6);
+}
+
+.dg-lang-card-en:hover {
+  transform: rotateY(-2deg) translateY(-10px) scale(1.025);
+  box-shadow: 0 0 95px #3399ff75, 0 60px 110px rgba(0, 0, 30, 0.7);
+}
+
+.dg-lang-card-en:active,
+.dg-lang-card-en.is-selected {
+  transform: rotateY(0deg) translateY(-12px) scale(1.045);
+  box-shadow: 0 0 120px #3399ffaa, 0 60px 120px rgba(0, 0, 30, 0.75);
+}
+
+.dg-lang-card.is-dimmed {
+  opacity: 0.42;
+  transform: scale(0.96);
+}
+
+.dg-lang-arrow {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s ease;
+}
+
+.dg-lang-card-ar:hover .dg-lang-arrow,
+.dg-lang-card-ar.is-selected .dg-lang-arrow {
+  transform: translateX(-6px) scale(1.08);
+}
+
+.dg-lang-card-en:hover .dg-lang-arrow,
+.dg-lang-card-en.is-selected .dg-lang-arrow {
+  transform: translateX(6px) scale(1.08);
+}
+
+body.dg-custom-cursor-active,
+body.dg-custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* Interactive Kiosk Buttons */
+.dg-btn-glass {
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.dg-btn-glass:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: #3399ff !important;
+  box-shadow: 0 0 28px rgba(51, 153, 255, 0.45);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.dg-btn-glass:active {
+  transform: scale(0.96);
+}
+
+.dg-btn-glass svg {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dg-btn-glass:hover svg {
+  transform: translateX(-4px);
+}
+
+.dg-btn-primary {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s ease,
+    background 0.25s ease;
+}
+
+.dg-btn-primary:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 45px rgba(0, 255, 153, 0.45), 0 24px 60px rgba(0, 0, 30, 0.55) !important;
+}
+
+.dg-btn-primary:active,
+.dg-btn-primary.is-selected {
+  transform: scale(0.97);
+  box-shadow: 0 0 65px rgba(0, 255, 153, 0.75) !important;
+}
+
+.dg-btn-primary .dg-btn-arrow {
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dg-btn-primary:hover .dg-btn-arrow {
+  transform: scale(1.1);
+}
+
+.pf-nav-arrow {
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.pf-nav-arrow:hover {
+  transform: scale(1.1);
+  border-color: #00ff99 !important;
+  background: rgba(0, 255, 153, 0.14) !important;
+  box-shadow: 0 0 32px rgba(0, 255, 153, 0.45), 0 16px 40px rgba(0, 0, 30, 0.5) !important;
+}
+
+.pf-nav-arrow:active {
+  transform: scale(0.93);
+}
+
+/* Elevated Camera Shutter Button */
+.dg-shutter-btn {
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease,
+    box-shadow 0.28s ease;
+}
+
+.dg-shutter-btn:not(:disabled):hover {
+  transform: scale(1.07);
+  border-color: #00ff99 !important;
+  box-shadow: 0 0 55px rgba(0, 255, 153, 0.55), 0 0 0 10px rgba(0, 255, 153, 0.16) !important;
+}
+
+.dg-shutter-btn:not(:disabled):active {
+  transform: scale(0.92);
+}
+
+.dg-shutter-btn .dg-shutter-core {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.dg-shutter-btn:not(:disabled):hover .dg-shutter-core {
+  transform: scale(1.06);
+  box-shadow: 0 0 32px rgba(0, 255, 153, 0.8);
+}
+
+/* Result Screen QR & Card Animations */
+@keyframes qrGlowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 22px rgba(51, 153, 255, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 36px rgba(0, 255, 153, 0.65);
+  }
+}
+
+@keyframes qrScanLine {
+  0% {
+    top: 8%;
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 0.45;
+  }
+  100% {
+    top: 90%;
+    opacity: 0;
+  }
+}
+
+.dg-qr-box {
+  animation: qrGlowPulse 3.2s ease-in-out infinite;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dg-qr-card {
+  transition: border-color 0.28s ease, box-shadow 0.32s ease;
+}
+
+.dg-qr-card:hover {
+  border-color: rgba(0, 255, 153, 0.45) !important;
+  box-shadow: 0 18px 50px rgba(0, 255, 153, 0.16);
+}
+
+.dg-qr-card:hover .dg-qr-box {
+  transform: scale(1.03);
+}
+
+.dg-qr-scan {
+  animation: qrScanLine 2.8s ease-in-out infinite;
+}
+
+@keyframes resultCardParallax {
+  0%,
+  100% {
+    transform: perspective(1400px) rotateX(1.8deg) rotateY(-2.4deg) translateY(0px);
+  }
+  25% {
+    transform: perspective(1400px) rotateX(-1.4deg) rotateY(2deg) translateY(-6px);
+  }
+  50% {
+    transform: perspective(1400px) rotateX(-1.8deg) rotateY(2.4deg) translateY(-3px);
+  }
+  75% {
+    transform: perspective(1400px) rotateX(1.4deg) rotateY(-2deg) translateY(-7px);
+  }
+}
+
+@keyframes resultCardSheen {
+  0%,
+  100% {
+    transform: translateX(-120%) skewX(-18deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateX(220%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+.dg-result-card {
+  animation: resultCardParallax 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.dg-result-sheen {
+  animation: resultCardSheen 7s ease-in-out infinite;
+  will-change: transform, opacity;
+}
