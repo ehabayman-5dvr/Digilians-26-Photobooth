@@ -11,9 +11,9 @@ function loadImage(src: string): Promise<HTMLImageElement> {
 }
 
 /**
- * Composites the generated 2:3 portrait into Frame.png's inner transparent window
- * (1055x1365 at 73,188 with ~5px bleed under the rounded rim) using a seamless
- * blurred cover backdrop + full-image contain foreground so zero details are cropped.
+ * Composites the generated portrait into frame.png's inner transparent window
+ * (~1068x1375 at 66,231 on 1200x1800, with ~6px bleed under the rounded rim)
+ * using centered cover so the window is completely filled without gaps.
  */
 export async function compositeWithFrame(
   portraitDataUrl: string,
@@ -26,11 +26,11 @@ export async function compositeWithFrame(
   const W = 1200;
   const H = 1800;
 
-  // Inner window bounds of Frame.png with ~5px bleed under the border rim
-  const winX = 68;
-  const winY = 182;
-  const winW = 1064;
-  const winH = 1378;
+  // Inner window bounds of frame.png (2048x3072 -> 1200x1800) with ~6px bleed under the border rim
+  const winX = 60;
+  const winY = 225;
+  const winW = 1080;
+  const winH = 1388;
 
   const [portraitImg, frameImg] = await Promise.all([
     loadImage(portraitDataUrl),

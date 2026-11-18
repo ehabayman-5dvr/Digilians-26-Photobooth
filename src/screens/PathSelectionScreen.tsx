@@ -3,7 +3,6 @@ import { Language, LearningPathConfig, PathId } from '../types/photobooth';
 import { LEARNING_PATHS } from '../data/pathsConfig';
 import { getStrings, toLocaleDigits } from '../data/i18n';
 import { getAssetUrl } from '../utils/assetHelper';
-import { PartnerFooter } from '../components/PartnerFooter';
 import { playSwipe, playTap } from '../services/soundService';
 
 interface PathSelectionScreenProps {
@@ -168,53 +167,50 @@ export const PathSelectionScreen: React.FC<PathSelectionScreenProps> = ({
         }}
       />
 
-      {/* Top Bar */}
+      {/* Top Partner & Digilians Logos Bar */}
       <div
         style={{
           position: 'absolute',
-          left: 72,
-          right: 72,
-          top: 72,
+          left: 36,
+          right: 36,
+          top: 32,
+          height: 135,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           direction: 'ltr',
-          zIndex: 20,
+          zIndex: 5,
         }}
       >
-        <button
-          type="button"
-          className="dg-btn-glass"
-          onClick={onBack}
-          aria-label={t.backBtn}
-          style={{
-            height: 88,
-            padding: '0 32px',
-            borderRadius: 999,
-            border: '1.5px solid rgba(255,255,255,0.28)',
-            background: 'rgba(255,255,255,0.1)',
-            backdropFilter: 'blur(16px)',
-            color: '#FFFFFF',
-            fontSize: 26,
-            fontWeight: 600,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-          }}
-        >
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 12H5" />
-            <path d="M12 19l-7-7 7-7" />
-          </svg>
-          <span>{t.backBtn}</span>
-        </button>
-
         <div
           style={{
-            width: 88,
-            height: 88,
-            borderRadius: 26,
+            width: 211,
+            height: 122,
+            borderRadius: 32,
             background: '#FFFFFF',
+            border: '2px solid rgba(51,153,255,0.35)',
+            boxShadow: '0 0 30px rgba(51,153,255,0.45)',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <img
+            src={getAssetUrl('assets/logo-ema.png')}
+            alt="Egyptian Military Academy"
+            style={{ maxWidth: 175, maxHeight: 92, objectFit: 'contain' }}
+          />
+        </div>
+        <div
+          style={{
+            width: 510,
+            height: 135,
+            borderRadius: 999,
+            background: '#FFFFFF',
+            border: '2px solid rgba(51,153,255,0.35)',
+            boxShadow: '0 0 30px rgba(51,153,255,0.45)',
+            boxSizing: 'border-box',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -223,10 +219,63 @@ export const PathSelectionScreen: React.FC<PathSelectionScreenProps> = ({
           <img
             src={getAssetUrl('assets/logo-digilians.png')}
             alt="Digilians"
-            style={{ height: 70, objectFit: 'contain' }}
+            style={{ maxHeight: 118, objectFit: 'contain' }}
+          />
+        </div>
+        <div
+          style={{
+            width: 211,
+            height: 122,
+            borderRadius: 32,
+            background: '#FFFFFF',
+            border: '2px solid rgba(51,153,255,0.35)',
+            boxShadow: '0 0 30px rgba(51,153,255,0.45)',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <img
+            src={getAssetUrl('assets/logo-mcit.png')}
+            alt="Ministry of Communications and Information Technology"
+            style={{ maxWidth: 175, maxHeight: 82, objectFit: 'contain' }}
           />
         </div>
       </div>
+
+      {/* Back Button */}
+      <button
+        type="button"
+        className="dg-btn-glass"
+        onClick={onBack}
+        aria-label={t.backBtn}
+        style={{
+          position: 'absolute',
+          left: 36,
+          top: 204,
+          zIndex: 20,
+          height: 76,
+          padding: '0 26px',
+          borderRadius: 999,
+          border: '1.5px solid rgba(255,255,255,0.28)',
+          background: 'rgba(255,255,255,0.1)',
+          backdropFilter: 'blur(16px)',
+          color: '#FFFFFF',
+          fontSize: 22,
+          fontWeight: 600,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          direction: 'ltr',
+        }}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M19 12H5" />
+          <path d="M12 19l-7-7 7-7" />
+        </svg>
+        <span>{t.backBtn}</span>
+      </button>
 
       {/* Screen Title */}
       <div
@@ -234,7 +283,7 @@ export const PathSelectionScreen: React.FC<PathSelectionScreenProps> = ({
           position: 'absolute',
           left: 0,
           right: 0,
-          top: 186,
+          top: 206,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -643,7 +692,48 @@ export const PathSelectionScreen: React.FC<PathSelectionScreenProps> = ({
         )}
       </div>
 
-      <PartnerFooter compact />
+      {/* Bottom Powered By 5dVR Footer */}
+      <div
+        style={{
+          position: 'absolute',
+          left: 72,
+          right: 72,
+          bottom: 56,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 28,
+          pointerEvents: 'none',
+        }}
+      >
+        <div
+          style={{
+            height: 100,
+            padding: '0 36px',
+            borderRadius: 28,
+            background: 'rgba(255,255,255,0.94)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 36,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: '0.22em',
+              color: 'rgba(0,0,102,0.6)',
+            }}
+          >
+            POWERED BY
+          </span>
+          <img
+            src={getAssetUrl('assets/logo-5dvr.png')}
+            alt="5dVR — Future Reality"
+            style={{ height: 64, objectFit: 'contain' }}
+          />
+        </div>
+      </div>
     </div>
   );
 };

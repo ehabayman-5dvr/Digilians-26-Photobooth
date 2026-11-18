@@ -78,64 +78,6 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
         }}
       />
 
-      {/* Top Brand Header Pill */}
-      <div style={{ position: 'absolute', left: 0, right: 0, top: 52, display: 'flex', justifyContent: 'center', direction: 'ltr' }}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 18,
-            height: 84,
-            padding: '0 28px 0 12px',
-            borderRadius: 999,
-            background: 'rgba(255,255,255,0.08)',
-            border: '1px solid rgba(255,255,255,0.18)',
-            backdropFilter: 'blur(18px)',
-            WebkitBackdropFilter: 'blur(18px)',
-          }}
-        >
-          <span
-            style={{
-              width: 62,
-              height: 62,
-              borderRadius: '50%',
-              background: '#FFFFFF',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <img
-              src={getAssetUrl('assets/logo-digilians.png')}
-              alt="Digilians"
-              style={{ height: 46, objectFit: 'contain' }}
-            />
-          </span>
-          <span
-            dir="rtl"
-            style={{
-              fontFamily: "'IBM Plex Sans Arabic', sans-serif",
-              fontSize: 26,
-              fontWeight: 600,
-            }}
-          >
-            الرواد الرقميون
-          </span>
-          <span style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.25)' }} />
-          <span
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 18,
-              fontWeight: 500,
-              letterSpacing: '0.26em',
-              color: 'rgba(255,255,255,0.75)',
-            }}
-          >
-            AI PHOTO BOOTH
-          </span>
-        </div>
-      </div>
-
       {/* Top Mode Badge */}
       <div style={{ position: 'absolute', left: 0, right: 0, top: 168, display: 'flex', justifyContent: 'center' }}>
         <span

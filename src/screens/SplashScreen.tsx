@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { DashboardCloudConfig, Language } from '../types/photobooth';
 import { getStrings } from '../data/i18n';
 import { getAssetUrl } from '../utils/assetHelper';
-import { PartnerFooter } from '../components/PartnerFooter';
 import { playTap } from '../services/soundService';
 
 interface SplashScreenProps {
@@ -92,44 +91,82 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
         }}
       />
 
-      {/* Top Digilians Logo Badge */}
+      {/* Top Partner & Digilians Logos Bar */}
       <div
         style={{
           position: 'absolute',
-          left: 400,
-          top: 64,
-          width: 280,
-          height: 280,
-          borderRadius: 64,
-          border: '2px solid transparent',
-          background:
-            'linear-gradient(160deg, rgba(255,255,255,0.97), rgba(232,242,255,0.93)) padding-box, linear-gradient(150deg, #00FF99, #3399FF 60%, rgba(51,153,255,0.3)) border-box',
-          boxShadow: '0 0 60px rgba(51,153,255,0.45), 0 30px 70px rgba(0,0,30,0.5)',
+          left: 36,
+          right: 36,
+          top: 32,
+          height: 135,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
+          direction: 'ltr',
+          zIndex: 5,
         }}
       >
-        <img
-          src={getAssetUrl('assets/logo-digilians.png')}
-          alt="Digilians"
-          style={{ height: 216, objectFit: 'contain' }}
-        />
+        <div
+          style={{
+            width: 211,
+            height: 122,
+            borderRadius: 32,
+            background: '#FFFFFF',
+            border: '2px solid rgba(51,153,255,0.35)',
+            boxShadow: '0 0 30px rgba(51,153,255,0.45)',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <img
+            src={getAssetUrl('assets/logo-ema.png')}
+            alt="Egyptian Military Academy"
+            style={{ maxWidth: 175, maxHeight: 92, objectFit: 'contain' }}
+          />
+        </div>
+        <div
+          style={{
+            width: 510,
+            height: 135,
+            borderRadius: 999,
+            background: '#FFFFFF',
+            border: '2px solid rgba(51,153,255,0.35)',
+            boxShadow: '0 0 30px rgba(51,153,255,0.45)',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <img
+            src={getAssetUrl('assets/logo-digilians.png')}
+            alt="Digilians"
+            style={{ maxHeight: 118, objectFit: 'contain' }}
+          />
+        </div>
+        <div
+          style={{
+            width: 211,
+            height: 122,
+            borderRadius: 32,
+            background: '#FFFFFF',
+            border: '2px solid rgba(51,153,255,0.35)',
+            boxShadow: '0 0 30px rgba(51,153,255,0.45)',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <img
+            src={getAssetUrl('assets/logo-mcit.png')}
+            alt="Ministry of Communications and Information Technology"
+            style={{ maxWidth: 175, maxHeight: 82, objectFit: 'contain' }}
+          />
+        </div>
       </div>
-      <span
-        aria-hidden="true"
-        className="dg-pulse"
-        style={{
-          position: 'absolute',
-          left: 370,
-          top: 34,
-          width: 340,
-          height: 340,
-          borderRadius: 80,
-          border: '1.5px solid rgba(143,200,255,0.35)',
-          pointerEvents: 'none',
-        }}
-      />
 
       {/* Welcome Header */}
       <div
@@ -137,7 +174,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
           position: 'absolute',
           left: 80,
           right: 80,
-          top: 410,
+          top: 250,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -276,7 +313,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
             position: 'absolute',
             left: 72,
             right: 72,
-            top: 860,
+            top: 760,
             display: 'grid',
             gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
             gap: 40,
@@ -613,7 +650,62 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
         </div>
       )}
 
-      <PartnerFooter />
+      {/* Bottom Powered By 5dVR Footer */}
+      <div
+        style={{
+          position: 'absolute',
+          left: 72,
+          right: 72,
+          bottom: 56,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 18,
+          pointerEvents: 'none',
+        }}
+      >
+        <div
+          style={{
+            width: 420,
+            height: 170,
+            borderRadius: 40,
+            border: '2px solid transparent',
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.97), rgba(232,242,255,0.94)) padding-box, linear-gradient(90deg, #00FF99, #3399FF 50%, #00FF99) border-box',
+            boxShadow: '0 0 50px rgba(51,153,255,0.40), 0 24px 60px rgba(0,0,30,0.45)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            padding: '0 40px',
+            boxSizing: 'border-box',
+          }}
+        >
+          <span
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 8,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 14,
+                fontWeight: 700,
+                letterSpacing: '0.22em',
+                color: 'rgba(0,0,102,0.6)',
+              }}
+            >
+              POWERED BY
+            </span>
+            <img
+              src={getAssetUrl('assets/logo-5dvr.png')}
+              alt="5dVR — Future Reality"
+              style={{ height: 104, objectFit: 'contain' }}
+            />
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
